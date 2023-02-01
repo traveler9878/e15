@@ -18,6 +18,12 @@
         You have $<?php echo $total; ?> in your piggy bank.
     </p>
 
+    <ul>
+        <?php foreach ($coins as $coin => $value) { ?>
+        <li><?php echo $coin; ?>: <?php echo $value; ?>
+            <?php } ?>
+    </ul>
+
 </body>
 
 </html>
