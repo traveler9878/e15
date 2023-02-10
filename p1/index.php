@@ -1,12 +1,12 @@
 <?php
 
-function isPalindrome(){
+session_start();
 
 
-}
+$isPalindrome = $_SESSION['isPalindrome'];
+$vowelCount = $_SESSION['vowelCount'];
 
-function vowelCount($inString){
-
-}
+//var_dump($_SESSION);
 
 require 'index-view.php';
+?>
