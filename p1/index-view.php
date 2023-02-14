@@ -28,7 +28,12 @@
 
     <?php echo($wordToEvaluate); ?>
 
-    ", IS a Palindrome <BR>
+    ", IS
+    <?php if($cleanStrSize < 1){
+        echo('NOT');
+    } ?>
+
+    a Palindrome <BR>
     <?php } else { ?>
     The submitted word, "
 
