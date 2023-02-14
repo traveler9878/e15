@@ -21,13 +21,23 @@
         <input type='text' name='wordToEvaluate' id='wordToEvaluate'>
         <button type='submit'>Evaluate</button>
     </form>
+    <BR>
+    <?php if($clean > 0){ ?>
+    <?php if ($isPalindrome) { ?>
+    The submitted word, "
 
-    <?php if($isPalindrome){ ?>
-    The submitted word IS a Palindrome <BR>
-    <?php }else{ ?>
-    The submitted word IS NOT a Palindrome <BR>
+    <?php echo($wordToEvaluate); ?>
+
+    ", IS a Palindrome <BR>
+    <?php } else { ?>
+    The submitted word, "
+
+    <?php echo($wordToEvaluate); ?>
+
+    ", IS NOT a Palindrome <BR>
     <?php } ?>
     Vowel Count is: <?php echo($vowelCount) ?>
+    <?php } ?>
 
 </body>
 

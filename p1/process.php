@@ -48,5 +48,7 @@ $_SESSION['isPalindrome'] = isPalindrome($wordToEvaluate);
 
 $_SESSION['vowelCount'] = vowelCount($wordToEvaluate);
 
+$_SESSION['wordToEvaluate'] = $wordToEvaluate;
+
 //Redirect
 header('Location:  index.php');
