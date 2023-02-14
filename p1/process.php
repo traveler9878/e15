@@ -5,9 +5,13 @@ session_start();
 
 function isPalindrome($inStr){
     $strLower = strtolower($inStr);
-    $revStr = strrev($strLower);
 
-    if($strLower == $revStr){
+    $cleanStr = preg_replace('/[^A-Za-z0-9\-]/', '', $strLower); 
+
+    
+    $revStr = strrev($cleanStr);
+
+    if($cleanStr == $revStr){
         return true;
     }
     return false;

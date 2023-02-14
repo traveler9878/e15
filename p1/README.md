@@ -11,6 +11,9 @@ https://www.w3schools.com/PHP/func_array_sizeof.asp
 session_unset recommendation:
 https://stackoverflow.com/questions/21418866/how-to-unset-a-session-array-in-php
 
+remove special characters from a string
+https://www.geeksforgeeks.org/how-to-remove-special-character-from-string-in-php/
+
 
 ## Notes for instructor
 n/a
