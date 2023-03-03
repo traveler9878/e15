@@ -2,6 +2,8 @@
 
 session_start();
 
+require_once('Student.php');
+$student = new Student(99);
 
 $clean = sizeof($_SESSION);
 if ($clean > 0) {

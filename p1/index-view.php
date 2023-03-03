@@ -13,6 +13,7 @@
 </head>
 
 <body>
+    <?php echo $student->getID()?>
     <h1>Project 1</h1>
     <form method='GET' action='process.php'>
         <h1>Word Evaluator</h1>
