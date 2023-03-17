@@ -4,6 +4,8 @@
 <head>
     <title>@yield('title')</title>
     <meta charset='utf-8'>
+    <!-- Latest Bootstrap compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href='/css/app.css' type='text/css' rel='stylesheet'>
     @yield('head');
 </head>
