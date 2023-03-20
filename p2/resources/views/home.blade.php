@@ -6,7 +6,7 @@
 
 
 @section('head')
-    <h1>Daily Journal</h1>
+    <h1>Daily Notes</h1>
 @endsection
 
 @section('content')
