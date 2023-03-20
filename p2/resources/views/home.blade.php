@@ -6,26 +6,41 @@
 
 
 @section('head')
-    <h1>Add note to Self</h1>
+    <h1>Daily Journal</h1>
 @endsection
 
 @section('content')
     <form method='post' action='/notes'>
         <div class='details'>* Required fields</div>
+        <br>
         {{ csrf_field() }}
 
-        <label for='title'>* Title</label>
-        <input type='text' name='title' id='title' value='{{ old('title') }}'>
+        <label for='summary'>* Today's Summary:</label>
+        <br>
+        <input type='text' name='summary' id='summary' size='80' value='{{ old('summary') }}'>
         <br><br>
 
-        <label for='note'>Note</label>
-        <textarea name='note'>
-        {{ old('note') }}
+        <label for="rating">* Today's Rating:</label>
+        <br>
+        <input type='text' name='rating' id='rating' value='{{ old('rating') }}'>
+        <br><br>
+
+        <label for='detail'>Today's Description and Details:</label>
+        <br>
+        <textarea name='detail' cols='60' rows='8'>
+        {{ old('detail') }}
         </textarea>
         <br><br>
 
+
         <label for='active'>* Active</label>
-        <input type='checkbox' name='active' value='true' checked>
+        <br>
+        <input type="radio" id="yes" name="active" value="y"
+            {{ old('active') == 'y' ? 'checked' : 'checked' }}>
+        <label for="yes">Yes</label><br>
+        <input type="radio" id="no" name="active" value="n" {{ old('active') == 'n' ? 'checked' : '' }}>
+        <label for="no">No</label><br>
+
 
         <br><br>
         <label for='submit'>Click to Add Note</label>

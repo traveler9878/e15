@@ -11,7 +11,8 @@ class NoteController extends Controller
     {
         //Validate the form data, if it fails it will return to /home
         $request->validate([
-            'title' => 'required|min:4',
+            'summary' => 'required|min:4',
+            'rating' => 'required',
             'active' => 'required'
         ]);
         dump($request->all());

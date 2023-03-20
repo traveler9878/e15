@@ -22,7 +22,7 @@
 
 <body>
     <header>
-        <a href='/'><img src='/images/mye15logo.png' id='logo' alt='my E15 project logo'></a>
+
     </header>
 
     <section>
@@ -30,5 +30,5 @@
     </section>
     <br><br>
     <footer>
-        &copy; My E15 Project...
+        &copy; David Curtis E15 Project 2
     </footer>
