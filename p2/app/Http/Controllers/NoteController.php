@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 
@@ -15,6 +16,8 @@ class NoteController extends Controller
             'rating' => 'required',
             'active' => 'required'
         ]);
-        dump($request->all());
+       //dump($request->all());
+       $_SESSION['request'] = $request;
+       return view('read');
     }
 }

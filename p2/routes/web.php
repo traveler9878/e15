@@ -19,3 +19,7 @@ Route::get('/', function () {
 });
 
 Route::post('/notes', [NoteController::class, 'store']);
+
+Route::get('/read', function(){
+    return view('read');
+});

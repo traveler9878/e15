@@ -1,12 +1,12 @@
 @extends('layouts/main')
 
 @section('title')
-    Notes to Self.
+    Daily Log.
 @endsection
 
 
 @section('head')
-    <h1>Daily Notes</h1>
+    <h1>Daily Notes Log Entry</h1>
 @endsection
 
 @section('content')
