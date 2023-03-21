@@ -2,7 +2,9 @@
 <html lang='en'>
 
 <head>
-    <title>@yield('title')</title>
+    <title>@yield('title')
+        My Daily Notes
+    </title>
     <meta charset='utf-8'>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -23,6 +25,7 @@
 <body>
     <header>
 
+        <h1>My Daily Notes and Ratings</h1>
     </header>
 
     <section>
