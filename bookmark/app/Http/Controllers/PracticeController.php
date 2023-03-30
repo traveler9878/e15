@@ -7,6 +7,58 @@ use App\Models\Book;
 
 class PracticeController extends Controller
 {
+
+//Retrieve the last 2 books that were added to the books table.
+public function practice10(){
+    # Limit the amount of results a query will return
+$result = Book::orderBy('created_at', 'desc')->limit(2)->get();
+dump($result->toArray());
+
+}
+
+// Retrieve all the books published after 1950.
+public function practice11(){
+    $result = Book::where('published_year', '>', '1950')->get();
+dump($result->toArray());
+
+}
+
+// Retrieve all the books in alphabetical order by title.
+public function practice12(){
+    $result = Book::orderBy('title', 'asc')->get();
+    dump($result->toArray());
+}
+
+// Retrieve all the books in descending order according to published year.
+public function practice13(){
+    $result = Book::orderBy('published_year', 'desc')->get();
+dump($result->toArray());
+
+}
+
+// Find any books by the author “J.K. Rowling” and update the author name to be “JK Rowling”
+public function practice14(){
+    $books = Book::where('author', '=', 'JK Rowling')->get();
+    if( $books ) {
+        dump("Book not found, can not update");
+    }else{
+        foreach($books as $book){
+            $book->author = 'J.K. Rowling';
+            $book->save();
+            dump($book);
+        }
+    }
+    //dump(Book::orderBy('published_year')->get()->toArray());
+
+}
+
+// Remove any/all books with an author name that includes the string “Rowling”.
+public function practice15(){
+# Delete any rows matching a `where` constraint
+$result = Book::where('author', 'LIKE', '*Rowling*')->delete();
+dump($result);
+}
+
   function practice5(){
     # First get a book to update
     $book = Book::where('author', '=', 'F. Scott Fitzgerald')->first();
