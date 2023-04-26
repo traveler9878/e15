@@ -1,0 +1,18 @@
+paths:
+    tests: tests
+    output: tests/_output
+    data: tests/_data
+    support: tests/_support
+    envs: tests/_envs
+actor_suffix: Tester
+extensions:
+    enabled:
+        - Codeception\Extension\RunFailed
+actor: AcceptanceTester
+modules:
+    enabled:
+        - Asserts
+        - PhpBrowser:
+            url: http://bookmark.davidcurtis.me
+        - \Helper\Acceptance
+step_decorators: ~

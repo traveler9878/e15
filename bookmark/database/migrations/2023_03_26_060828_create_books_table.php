@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('slug');
             $table->string('title');
-            $table->string('author');
+            //$table->string('author');
             $table->smallInteger('published_year');
             $table->string('cover_url');
             $table->string('info_url');
