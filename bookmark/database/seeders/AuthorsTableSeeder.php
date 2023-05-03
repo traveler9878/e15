@@ -4,8 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Author; # ← NEW
-use Faker\Factory; # ← NEW
+
+use App\Models\Author;
+use Faker\Factory;
 
 class AuthorsTableSeeder extends Seeder
 {
@@ -14,8 +15,6 @@ class AuthorsTableSeeder extends Seeder
      *
      * @return void
      */
-
-
     public function run()
     {
         # https://fakerphp.github.io
@@ -36,16 +35,16 @@ class AuthorsTableSeeder extends Seeder
         # Loop through each author, adding them to the database
         foreach ($authors as $authorData) {
             $author = new Author();
-            
+        
             $author->created_at = $this->faker->dateTimeThisMonth();
             $author->updated_at = $this->faker->dateTimeThisMonth();
             $author->first_name = $authorData[0];
             $author->last_name = $authorData[1];
             $author->birth_year = $authorData[2];
             $author->bio_url = $authorData[3];
-            
+        
             $author->save();
-            
+        
             $count--;
         }
     }

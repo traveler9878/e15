@@ -97,7 +97,7 @@ class BooksTableSeeder extends Seeder
             $book->updated_at =  $book->created_at;
             $book->title = Str::title($title);
             $book->slug = Str::slug($title, '-');
-            $book->author_id = Author::where('last_name', '=', 'Weir')->pluck('id')->first();;
+            $book->author_id = null;
             $book->published_year = $this->faker->year;
             $book->cover_url = 'https://hes-bookmark.s3.amazonaws.com/cover-placeholder.png';
             $book->info_url = 'https://en.wikipedia.org/wiki/' . $book->slug;

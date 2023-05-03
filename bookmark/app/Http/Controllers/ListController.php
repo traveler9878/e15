@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Book;
+use App\Mail\addedToList;
+use Mail;
 
 class ListController extends Controller
 {
@@ -38,6 +40,10 @@ class ListController extends Controller
         $book = Book::findBySlug($slug);
 
         $user->books()->save($book, ['notes' => $request->notes]);
+        //send email
+        $email = new addedToList;
+
+        Mail::to($request->user())->send($email);
 
         return redirect('/list')->with(['flash-alert' => 'The book ' . $book->title. ' was added to your list.']);
     }

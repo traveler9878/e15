@@ -23,6 +23,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function getEmail(){
+        return $fillable[1];
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

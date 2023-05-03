@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use App\Models\Book;
 use App\Models\Author;
+use App\Actions\Book\StoreNewBook;
 
 class BookController extends Controller
 {
@@ -23,42 +24,27 @@ class BookController extends Controller
         ]);
     }
 
-    /**
+     /**
     * POST /books
     * Process the form for adding a new book
     */
     public function store(Request $request)
     {
-        # Validate the request data
-        # The `$request->validate` method takes an array of data
-        # where the keys are form inputs
-        # and the values are validation rules to apply to those inputs
         $request->validate([
             'title' => 'required|max:255',
-            'slug' => 'required|unique:books,slug',
+            'slug' => 'required|unique:books,slug,alpha_dash',
             'author_id' => 'required',
             'published_year' => 'required|digits:4',
             'cover_url' => 'required|url',
             'info_url' => 'required|url',
             'purchase_url' => 'required|url',
-            'description' => 'required|min:100'
+            'description' => 'required|min:100',
+            'myFile' => 'mimes:jpeg,bmp,png|size:1000'
         ]);
 
-        # Note: If validation fails, it will automatically redirect the visitor back to the form page
-        # and none of the code that follows will execute.
-        
-        $book = new Book();
-        $book->title = $request->title;
-        $book->slug = $request->slug;
-        $book->author_id = $request->author_id;
-        $book->published_year = $request->published_year;
-        $book->cover_url = $request->cover_url;
-        $book->info_url = $request->info_url;
-        $book->purchase_url = $request->purchase_url;
-        $book->description = $request->description;
-        $book->save();
+        $action = new StoreNewBook((object) $request->all());
 
-        return redirect('/books/create')->with(['flash-alert' => 'Your book was added.']);
+        return redirect('/books/create')->with(['flash-alert' => 'Your book ' . $action->results->title . ' was added.']);
     }
 
     /**
@@ -97,7 +83,7 @@ class BookController extends Controller
         $books = Book::orderBy('title', 'ASC')->get();
 
         //$newBooks = Book::orderBy('id', 'DESC')->limit(3)->get();
-        
+
         $newBooks = $books->sortByDesc('id')->take(3);
 
         return view('books/index', [
@@ -110,22 +96,34 @@ class BookController extends Controller
      * GET /books/{slug}
      * Show an individual book searching by slug
      */
-    public function show($slug)
+    public function show(Request $request, $slug)
     {
         $book = Book::where('slug', '=', $slug)->first();
 
+        if (!$book) {
+            return redirect('/books')->with(['flash-alert' => 'Book not found.']);
+        }
+
+        //$onList = $book->users()->where('user_id', $request->user()->id)->count() >= 1;
+/**
         return view('books/show', [
             'book' => $book,
+            'onList' => $onList
+        ]);
+         */
+        return view('books/show', [
+            'book' => $book
         ]);
     }
 
-    /**
+     /**
     * GET /books/{slug}/edit
     */
     public function edit(Request $request, $slug)
     {
-        $authors = Author::orderBy('last_name')->select(['id', 'first_name', 'last_name'])->get();
         $book = Book::where('slug', '=', $slug)->first();
+
+        $authors = Author::getForDropdown();
 
         if (!$book) {
             return redirect('/books')->with(['flash-alert' => 'Book not found.']);
@@ -133,7 +131,7 @@ class BookController extends Controller
 
         return view('books/edit', [
             'book' => $book,
-                'authors' => $authors
+            'authors' => $authors
         ]);
     }
 
@@ -152,7 +150,7 @@ class BookController extends Controller
             'cover_url' => 'url',
             'info_url' => 'url',
             'purchase_url' => 'required|url',
-            'description' => 'required|min:255'
+            'description' => 'required|min:100'
         ]);
 
         $book->title = $request->title;
