@@ -12,6 +12,10 @@ use Illuminate\Support\Facades\App;
 /**
  * Misc
  */
+Route::get('/phpinfo', function(){
+    phpinfo();
+});
+
 Route::get('/', [PageController::class, 'welcome']);
 Route::get('/contact', [PageController::class, 'contact']);
 
