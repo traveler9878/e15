@@ -8,9 +8,11 @@
 @endsection
 
 @section('content')
-    <?php
-    
-    ?>
+    <form method='POST' id='delete' action='/delete'>
+        {{ csrf_field() }}
+        <input type='hidden' name='note_id' value={{ $note->id }} />
+        <input type='submit' name='confirm' value='Confirm Delete'>
+    </form>
     <br>
     <h3>Note Created: {{ $note->created_at }}</h3>
     <br>
