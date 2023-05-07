@@ -14,12 +14,25 @@ use App\Http\Controllers\NoteController;
 |
 */
 
+Route::get('/test', function(){
+    return 'test';
+});
+
+Route::get('/mynotes', [NoteController::class, 'retrieveAll']);
+
+Route::get('/index', function(){
+    return view('home');
+});
 Route::get('/', function () {
     return view('home');
 });
 
 Route::post('/notes', [NoteController::class, 'store']);
 
-Route::get('/read', function(){
-    return view('read');
-});
+Route::get('/read', [NoteController::class, 'retrieveOne']);
+
+Route::get('/delete', [NoteController::class, 'delete']);
+
+Route::post('/delete', [NoteController::class, 'destroy']);
+
+Route::get('/hide', [NoteController::class, 'hide']);
