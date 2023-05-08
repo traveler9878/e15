@@ -1,9 +1,43 @@
 
-# Project 2
+# Project 3
 + By: David Curtis
-+ Production URL: <http://e15p2.davidcurtis.me>
++ Production URL: <http://e15p3.davidcurtis.me>
 
-## Outside resources
+Feature summary
+This is a daily journal to help users track their quality of life and hopefully improve it.
+
+Users can register.
+
+Users can login.
+
+Users can't access the application if they are not logged in, except to either register or login.
+
+Users can only see data that belongs to them, data they created.
+
+Users can create notes and give their day a rating of 1 to 5 starts.
+
+Users can use hashtags to annotate topics that may have affected the rating such as #weight, #exercise, #relationships, #family, etc.
+
+Users can write detailed  journal  entries for any given daily rating note.
+
+Users can use the note capability to  manage any type of  important notes.
+
+Users can browse a list of their ratings starting with the most recent.
+
+Users can delete ratings and notes.
+
+Users can hide ratings and notes.
+
+Users can expand details for ratings and summary notes in the list to see full journal entries.
+
+Database summary
+
+My application uses a MySQL database named 'ratings'.
+
+My application uses two tables.  The ratings and notes are in a table named 'notes'.  The user each note belongs to has a field in the notes table in order to associate themselves with thier notes. 
+
+My application modified the fortify users table to make user name a required field and has a one to many relationship between the users table and the notes table.
+
 
 --------------------------------------------------------------------------------------------------------root@hes:/var/www/e15/p3/tests/codeception# codecept run acceptance LoginPageCest --steps
 Codeception PHP Testing Framework v4.2.2 https://helpukrainewin.org
