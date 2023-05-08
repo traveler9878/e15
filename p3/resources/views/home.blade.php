@@ -21,8 +21,8 @@
         <br>
         {{ csrf_field() }}
 
-        <label for='submit'>Click to Add Note</label>
-        <input type='submit'>
+        <label for='submit' test='create-button'>Click to Add Note</label>
+        <input test='create-button type='submit'>
         <br><br>
 
         <label for='summary'>* Today's Summary:</label>

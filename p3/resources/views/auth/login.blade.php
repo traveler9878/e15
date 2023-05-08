@@ -34,7 +34,7 @@
 
     <h1>Login</h1>
 
-    Don’t have an account? <a href='/register'>Register here...</a>
+    Don’t have an account? <a href='/register' test='register-link'>Register here...</a>
     <br><br>
 
     <form method='POST' action='/login'>

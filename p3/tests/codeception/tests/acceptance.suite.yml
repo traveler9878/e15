@@ -11,4 +11,4 @@ modules:
         - PhpBrowser:
             url: http://e15p3.davidcurtis.me
         - \Helper\Acceptance
-step_decorators: ~ 
+step_decorators: ~        

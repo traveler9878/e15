@@ -1,6 +1,6 @@
 <?php
 
-class LoginPageCest
+class DeletePageCest
 {
     /**
      * Any code you put in this method will be executed before each test
@@ -12,7 +12,7 @@ class LoginPageCest
     /**
      *
      */
-    public function userCanLogIn(AcceptanceTester $I)
+    public function userCanDelete(AcceptanceTester $I)
     {
         # Act
         $I->amOnPage('/login');
@@ -30,8 +30,23 @@ class LoginPageCest
 
         # Assert expected results
         $I->see('Jill Harvard');
+        $I->click('[test=mynotes]');
 
         # Assert the existence of text within a specific element on the page
-        $I->see('Logout', 'nav');
+        $I->seeElement('[test="logout-link"]');
+
+        $I->see('First note by Jill');
+
+        //test hide
+        $I->click('[test=delete-link]');
+        $I->click('[test=delete-submit]');
+
+        $I->dontSee('First note by Jill');
+
+        $I->see('hide');
+
+
+        
+
     }
 }

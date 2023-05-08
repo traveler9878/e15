@@ -52,9 +52,9 @@
         @include('includes.error-field', ['fieldName' => 'password'])
         <br><br>
         <label for='password-confirm'>Confirm Password</label><br>
-        <input id='password-confirm' type='password' name='password_confirmation'>
+        <input id='password_confirmation' type='password' name='password_confirmation'>
         <br><br>
-        <button type='submit' class='btn btn-primary'>Register</button>
+        <button type='submit' class='btn btn-primary' test='register-button'>Register</button>
     </form>
     <footer>
         &copy; David Curtis E15 Project 3

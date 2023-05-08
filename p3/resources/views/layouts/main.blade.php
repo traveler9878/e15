@@ -28,9 +28,10 @@
         </h2>
         <form method='POST' id='logout' action='/logout'>
             {{ csrf_field() }}
-            <a id='navlink' href='/'>Home</a>
-            <a id='navlink' href='/mynotes'>My Notes</a>
-            <a id='navlink' href='#' onClick='document.getElementById("logout").submit();'>Logout</a>
+            <a id='navlink' href='/' test='home-link'>Home</a>
+            <a id='navlink' href='/mynotes' test='mynotes'>My Notes</a>
+            <a id='navlink' href='#' test='logout-link'
+                onClick='document.getElementById("logout").submit();'>Logout</a>
         @else
             <?php
             
