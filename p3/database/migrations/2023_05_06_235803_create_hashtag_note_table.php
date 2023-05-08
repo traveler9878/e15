@@ -8,6 +8,9 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * 
+     * This would link the notes to a row for each hashtag in the notes hashtag list
+     * Out of scope of Minimum Viable P3 Product 
      */
     public function up(): void
     {

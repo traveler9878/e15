@@ -8,6 +8,11 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     * Leaving this in.  There are some interesting possibilities 
+     * where hashtags can be parsed outand stored in a user-hashtag table
+     * this would enable sorting and grouping by data having the same hashtags
+     * 
+     * Out of implementation scope for this Minimum Viable P3 Product
      */
     public function up(): void
     {

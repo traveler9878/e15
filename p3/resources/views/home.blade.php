@@ -60,7 +60,7 @@
         <br>
         <textarea name='detail' cols='80' rows='3'>{{ old('detail') }}</textarea>
         @if (Auth::user())
-            <input name='user_name' type=hidden value={{ Auth::user()->name }}>
+            <input name='user_name' type=hidden value='{{ Auth::user()->name }}'>
         @endif
         <br><br>
 

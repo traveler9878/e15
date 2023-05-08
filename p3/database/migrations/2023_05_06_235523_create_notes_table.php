@@ -19,7 +19,8 @@ return new class extends Migration
             $table->integer('rating');
             $table->string('hashtag_list')->nullable();
             $table->text('long_description')->nullable();
-            $table->boolean('is_active')->unsigned()->nullable();
+            $table->boolean('is_active')->default(1);
+            $table->foreign('user_name')->references('name')->on('users');
         });
     }
 

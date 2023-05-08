@@ -33,7 +33,8 @@ class NoteController extends Controller
        
        //having issues calling the code below from another method or making it static
        $user = Auth::user();
-       $notes = Note::where('user_name', $user->name)->orderBy('created_at', 'DESC')->get();
+       $matchTheese = ['user_name' => $user->name, 'is_active' => '1'];
+       $notes = Note::where($matchTheese)->orderBy('created_at', 'DESC')->get();
        
        return view('/mynotes', [
            'notes' => $notes
@@ -44,8 +45,8 @@ class NoteController extends Controller
     public function retrieveAll()
     {
         $user = Auth::user();
-        $matchThese = ['user_name' => $user->name, 'is_active' => '1'];
-        $notes = Note::where($matchThese)->orderBy('created_at', 'DESC')->get();
+        $matchTheese = ['user_name' => $user->name, 'is_active' => '1'];
+        $notes = Note::where($matchTheese)->orderBy('created_at', 'DESC')->get();
         //dump ($notes);
 
         return view('/mynotes', [
